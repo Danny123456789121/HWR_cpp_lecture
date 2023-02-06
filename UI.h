@@ -7,5 +7,9 @@ class UI {
 private:
     ComplexNumber complexNumber;
 public:
-    void run()
+    void run();
+
+    void handleChoice();
+
+    void handler();
 };

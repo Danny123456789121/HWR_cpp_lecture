@@ -1,54 +1,108 @@
-#pragma once
-
 #include "UI.h"
 #include <iostream>
 
 using namespace std;
 
 void UI::run() {
+    while (true) {
+        cout << "1. Set real part" << endl;
+        cout << "2. Set imaginary part" << endl;
+        cout << "3. Set magnitude" << endl;
+        cout << "4. Set phase" << endl;
+        cout << "5. Create complex number in polar form" << endl;
+        cout << "6. Create complex number in cartesian form" << endl;
+        cout << "7. Print both forms" << endl;
+        cout << "8. Print cartesian form" << endl;
+        cout << "9. Print polar form" << endl;
+        cout << "10. Exit" << endl;
+        handleChoice();
+    }
+
+}
+
+void UI::handleChoice() {
     int choice = 0;
-    double, imaginaryPart, magnitude, phase;
-    while (choice != 5) {
+    while (choice != 10) {
         cin >> choice;
         switch (choice) {
             case 1: {
                 double realPart;
                 cout << "Enter the new real part: ";
                 cin >> realPart;
-                complexNumber.setRealPart(realPart);
-                break;
+                complexNumber.setReal(realPart);
+                handler();
             }
             case 2: {
                 double imaginaryPart;
                 cout << "Enter the new imaginary part: ";
                 cin >> imaginaryPart;
-                complexNumber.setImaginaryPart(imaginaryPart);
-                break;
+                complexNumber.setImaginary(imaginaryPart);
+                handler();
             }
             case 3: {
                 double magnitude;
                 cout << "Enter the new magnitude: ";
                 cin >> magnitude;
                 complexNumber.setMagnitude(magnitude);
-                break;
+                handler();
             }
             case 4: {
                 double phase;
                 cout << "Enter the new phase: ";
                 cin >> phase;
                 complexNumber.setPhase(phase);
-                break;
+                handler();
             }
             case 5: {
+                double magnitude, phase;
+                cout << "Enter the new magnitude: ";
+                cin >> magnitude;
+                cout << "Enter the new phase: ";
+                cin >> phase;
+                complexNumber.updatePolarForm(magnitude, phase);
+                handler();
+
+            }
+            case 6: {
+                double realPart, imaginaryPart;
+                cout << "Enter the new real part: ";
+                cin >> realPart;
+                cout << "Enter the new imaginary part: ";
+                cin >> imaginaryPart;
+                complexNumber.updateCartesianForm(realPart, imaginaryPart);
+                handler();
+            }
+            case 7: {
+                complexNumber.printComplexNumber();
+                handler();
+            }
+            case 8: {
+                complexNumber.printCartesian();
+                handler();
+
+            }
+            case 9: {
+                complexNumber.printPolarForm();
+                handler();
+            }
+            case 10: {
                 exit(0);
             }
         }
     }
 }
 
-void displayComplexNumber() {
-    cout << "Complex number: ";
-    cout << complexNumber.getRealPart() << " + " << complexNumber.getImaginaryPart() << "i" << endl;
-    cout << "In polar form: ";
-    cout << complexNumber.getMagnitude() << " * e^(i * " << complexNumber.getPhase() << ")" << endl;
+void UI::handler(){
+    cout << "\nWant to do another action?" << endl;
+    cout << "1. Yes" << endl;
+    cout << "2. No" << endl;
+
+    int choice;
+    cin >> choice;
+    if (choice == 1){
+        run();
+    }
+    else{
+        exit(0);
+    }
 }

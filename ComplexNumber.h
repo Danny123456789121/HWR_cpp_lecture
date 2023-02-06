@@ -5,43 +5,30 @@ private:
     double real, imag, magnitude, phase;
 
 public:
-    ComplexNumber();
-
-    ComplexNumber(double real, double imag);
-
-    ComplexNumber(double magnitude, double phase, bool polar);
 
     double getReal() const;
 
-    double getImaginaryPart();
+    double getImaginary() const;
 
-    double getMagnitude();
+    double getMagnitude() const;
 
-    double getPhase();
+    double getPhase() const;
 
-    void setRealPart(double real);
+    void setReal(double real);
 
-    void setImaginaryPart(double imag);
+    void setImaginary(double imag);
 
     void setMagnitude(double magnitude);
 
     void setPhase(double phase);
 
-    void setComplexNumber(double real, double imag);
-
-    void setComplexNumber(double magnitude, double phase, bool polar);
-
-    void setReal();
-
-    void setImag();
-
     void updateCartesianForm(double real, double imag);
 
     void updatePolarForm(double magnitude, double phase);
 
-    void printComplexNumber();
+    void printCartesian();
 
     void printPolarForm();
 
-
+    void printComplexNumber();
 };
