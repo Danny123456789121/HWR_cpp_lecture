@@ -12,14 +12,6 @@ double ComplexNumber::getImaginary() const {
     return imag;
 }
 
-double ComplexNumber::getMagnitude() const {
-    return magnitude;
-}
-
-double ComplexNumber::getPhase() const {
-    return phase;
-}
-
 void ComplexNumber::setReal(double real) {
     updateCartesianForm(real, this->imag);
 }

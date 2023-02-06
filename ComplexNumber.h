@@ -10,10 +10,6 @@ public:
 
     double getImaginary() const;
 
-    double getMagnitude() const;
-
-    double getPhase() const;
-
     void setReal(double real);
 
     void setImaginary(double imag);
