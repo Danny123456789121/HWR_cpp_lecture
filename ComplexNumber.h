@@ -6,6 +6,20 @@ private:
 
 public:
 
+    struct PolarForm {
+        double magnitude, phase;
+    };
+
+    struct CartesianForm {
+        double real, imag;
+    };
+
+    ComplexNumber() = default;
+
+    explicit ComplexNumber(const PolarForm& params);
+
+    explicit ComplexNumber(const CartesianForm& params);
+
     double getReal() const;
 
     double getImaginary() const;

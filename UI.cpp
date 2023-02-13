@@ -59,7 +59,7 @@ void UI::handleChoice() {
                 cin >> magnitude;
                 cout << "Enter the new phase: ";
                 cin >> phase;
-                complexNumber.updatePolarForm(magnitude, phase);
+                ComplexNumber(ComplexNumber::PolarForm{magnitude,phase});
                 handler();
 
             }
@@ -69,7 +69,7 @@ void UI::handleChoice() {
                 cin >> realPart;
                 cout << "Enter the new imaginary part: ";
                 cin >> imaginaryPart;
-                complexNumber.updateCartesianForm(realPart, imaginaryPart);
+                ComplexNumber(ComplexNumber::CartesianForm{realPart,imaginaryPart});
                 handler();
             }
             case 7: {

@@ -56,5 +56,13 @@ void ComplexNumber::printPolarForm() {
 void ComplexNumber::printComplexNumber() {
     printCartesian();
     printPolarForm();
+}
 
+ComplexNumber::ComplexNumber(const ComplexNumber::PolarForm &params) : magnitude(params.magnitude),
+                                                                       phase(params.phase) {
+    updatePolarForm(params.magnitude, params.phase);
+}
+
+ComplexNumber::ComplexNumber(const ComplexNumber::CartesianForm &params) : real(params.real), imag(params.imag) {
+    updateCartesianForm(params.real, params.imag);
 }
