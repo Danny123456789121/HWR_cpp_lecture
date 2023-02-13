@@ -1,10 +1,19 @@
 #pragma once
+#include <iostream>
 
 class ComplexNumber {
 private:
     double real, imag, magnitude, phase;
 
 public:
+
+    struct Float{
+        float x,y;
+    };
+
+    struct Double{
+        float x,y;
+    };
 
     struct PolarForm {
         double magnitude, phase;
@@ -14,11 +23,13 @@ public:
         double real, imag;
     };
 
-    ComplexNumber() = default;
-
     explicit ComplexNumber(const PolarForm& params);
 
     explicit ComplexNumber(const CartesianForm& params);
+
+    ComplexNumber(double real);
+
+    ComplexNumber() = default;
 
     double getReal() const;
 
@@ -36,9 +47,9 @@ public:
 
     void updatePolarForm(double magnitude, double phase);
 
-    void printCartesian();
+    std::string printCartesian() const;
 
-    void printPolarForm();
+    std::string printPolarForm() const;
 
-    void printComplexNumber();
+    std::string printComplexNumber() const;
 };

@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+#include <sstream>
 #include "ComplexNumber.h"
 
 using namespace std;
@@ -42,20 +43,22 @@ void ComplexNumber::updatePolarForm(double magnitude, double phase) {
     this->imag = magnitude * sin(phase);
 }
 
-void ComplexNumber::printCartesian() {
-    cout << "\nIn cartesian form: ";
-    cout << real << " + " << imag << "i" << endl;
+string ComplexNumber::printCartesian() const {
+    ostringstream os;
+    cout << "\nIn cartesian form: "<< this->real << " + " << this->imag << "i" << endl;
+    return os.str();
 }
 
-void ComplexNumber::printPolarForm() {
-    double r = sqrt(pow(getReal(), 2) + pow(getImaginary(), 2));
-    double theta = atan2(getImaginary(), getReal());
-    cout << "The polar form is: " << r << " * (cos(" << theta << ") + i * sin(" << theta << "))" << endl;
+string ComplexNumber::printPolarForm() const {
+    ostringstream os;
+    os << "The polar form is: " << this->magnitude << " * (cos(" << this->phase << ") + sin(" << this->phase << ")i)" << endl;
+    return os.str();
 }
 
-void ComplexNumber::printComplexNumber() {
-    printCartesian();
-    printPolarForm();
+string ComplexNumber::printComplexNumber() const {
+    ostringstream os;
+    os << printPolarForm() << printCartesian();
+    return os.str();
 }
 
 ComplexNumber::ComplexNumber(const ComplexNumber::PolarForm &params) : magnitude(params.magnitude),
@@ -65,4 +68,10 @@ ComplexNumber::ComplexNumber(const ComplexNumber::PolarForm &params) : magnitude
 
 ComplexNumber::ComplexNumber(const ComplexNumber::CartesianForm &params) : real(params.real), imag(params.imag) {
     updateCartesianForm(params.real, params.imag);
+}
+
+ComplexNumber::ComplexNumber(double real) {
+    double angle = (real >= 0) ? 45 : -45;
+    this->real = real * cos(angle);
+    this->imag = real * sin(angle);
 }

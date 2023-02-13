@@ -22,7 +22,7 @@ void UI::run() {
 
 void UI::handleChoice() {
     int choice = 0;
-    while (choice != 10) {
+    while (choice != 12) {
         cin >> choice;
         switch (choice) {
             case 1: {
@@ -59,7 +59,7 @@ void UI::handleChoice() {
                 cin >> magnitude;
                 cout << "Enter the new phase: ";
                 cin >> phase;
-                ComplexNumber(ComplexNumber::PolarForm{magnitude,phase});
+                complexNumber = ComplexNumber(ComplexNumber::PolarForm{magnitude,phase});
                 handler();
 
             }
@@ -69,25 +69,48 @@ void UI::handleChoice() {
                 cin >> realPart;
                 cout << "Enter the new imaginary part: ";
                 cin >> imaginaryPart;
-                ComplexNumber(ComplexNumber::CartesianForm{realPart,imaginaryPart});
+                complexNumber = ComplexNumber(ComplexNumber::CartesianForm{realPart,imaginaryPart});
                 handler();
             }
             case 7: {
-                complexNumber.printComplexNumber();
+                cout << complexNumber.printComplexNumber();
                 handler();
             }
             case 8: {
-                complexNumber.printCartesian();
+                cout << complexNumber.printCartesian();
                 handler();
-
             }
             case 9: {
-                complexNumber.printPolarForm();
+                cout << complexNumber.printPolarForm();
                 handler();
             }
             case 10: {
                 exit(0);
             }
+            /*case 14: {
+                complexNumber = ComplexNumber(11.5f);
+                Implizite Konvertierung zu double möglich, da keine Genauigkeit verloren geht.
+            }*/
+           /* case 12: {
+                complexNumber = ComplexNumber(ComplexNumber::PolarForm{});
+                cout << complexNumber.printComplexNumber() << endl;
+            }
+            case 13: {
+                complexNumber = ComplexNumber(ComplexNumber::CartesianForm{});
+                cout << complexNumber.printComplexNumber() << endl;
+                default constructor of 'UI' is implicitly deleted because field 'complexNumber' has multiple default constructors
+                Falls parameter nicht mitgegeben, wird Konstruktor mit Default-Parametern aufgerufen, wenn nur einer definiert.
+            }*/
+            //case 11: {
+                //cout << "test" << endl;
+                //ComplexNumber complexNumber();
+                //note: default constructor of 'UI' is implicitly deleted because field 'complexNumber' has no default constructor
+            //}
+
+/*                ComplexNumber::Float{4.5f,5.7f};
+                ComplexNumber::Float{4.5,5.7};
+                ComplexNumber::Float{4,5};
+                ComplexNumber::Float{"4.5","5.7"};*/
         }
     }
 }
