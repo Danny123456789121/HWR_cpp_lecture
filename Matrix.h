@@ -34,7 +34,7 @@ private:
 
 class Matrix33WrongIndicesError {
 public:
-    std::string getError() const{
+    std::string what() const{
         return "Wrong Indices";
     }
 };

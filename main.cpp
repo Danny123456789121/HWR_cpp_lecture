@@ -47,15 +47,15 @@ int main()
     // Ausdruecke richtig funktionieren und geben Sie nach jeder Rechnung die Ergebnisse aus:
     
     Matrix33 matResult1 = matA + matB;
-    std::cout<<matResult1.toString() <<std::endl;
+    std::cout<< "Matrix A + Matrix B = \n" << matResult1.toString() <<std::endl;
     Matrix33 matResult2 = matA * matB;
-    std::cout<<matResult2.toString() <<std::endl;
+    std::cout<< "Matrix A * Matrix B = \n" <<matResult2.toString() <<std::endl;
     Matrix33 matResult3 = matA * 5;
-    std::cout<<matResult3.toString() <<std::endl;
+    std::cout<< "Matrix A * 5 = \n" <<matResult3.toString() <<std::endl;
     matResult1 += matB;
-    std::cout<<matResult1.toString() <<std::endl;
+    std::cout<< "Matrix A += Matrix B = \n" <<matResult1.toString() <<std::endl;
     Matrix33 matC = matResult2 += matB;
-    std::cout<<matC.toString() <<std::endl;
+    std::cout<< "Matrix C = Matrix A += Matrix B\n" <<matC.toString() <<std::endl;
 
 
 
@@ -72,7 +72,7 @@ int main()
      */
 
   Matrix33 matResult4 = 5 * matA;
-    std::cout<<matResult4.toString() <<std::endl;
+    std::cout<<"Matrix A skaliert mit 5 = \n"<<matResult4.toString() <<std::endl;
 
 
     
@@ -85,7 +85,7 @@ int main()
     Matrix33 matZ(1,3,5,  1,-2,1, 1.5, 3.5, -4);
     // Erzeugen Sie einen Konvertierungsoperator, sodass folgender Ausdruck klappt.
     double det = matZ;
-    std::cout<< det <<std::endl;
+    std::cout<<"Determinante der Matrix = "<< det <<std::endl;
 
     // Der Konvertierungsoperator soll die Determinante der Matrix zurückgeben.
     // Hinweis: http://de.wikipedia.org/wiki/Determinante#Berechnung
@@ -104,7 +104,7 @@ int main()
 	try{
         double y = matX.get(3,3);
         } catch(const Matrix33WrongIndicesError& e) {
-         std::cout<<"Exception:\n" <<e.getError() << std::endl;
+         std::cout<<"Exception:\n" <<e.what() << std::endl;
     }
     
     return 0;
