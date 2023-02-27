@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(
-        main main.cpp ZeichenElemente.cpp ZeichenElemente.h Koordinate.cpp Koordinate.h Kreis.cpp Kreis.h Rechteck.cpp Rechteck.h)
+        main main.cpp ZeichenElement.cpp ZeichenElement.h Koordinate.cpp Koordinate.h Kreis.cpp Kreis.h Rechteck.cpp Rechteck.h UI.h)

@@ -1,9 +1,9 @@
-#include "ComplexNumber.h"
-#include "UI.h"
+#include "UI.cpp"
+
 
 int main() {
     UI ui;
-    ui.run();
+    ui.start();
 
     return 0;
 }
