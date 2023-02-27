@@ -1,20 +1,20 @@
 #pragma once
 
-#include "ZeichenElemente.h"
+#include "ZeichenElement.h"
 
-class Rechteck : public ZeichenElemente {
-
+class Rechteck : public ZeichenElement {
 public:
-    Rechteck();
-    Rechteck(int x, int y, int breite, int hoehe);
-    ~Rechteck();
+    Rechteck(const Koordinate &position = Koordinate{}, double breite = 1.0, double hoehe = 1.0);
+    virtual double getUmfang() const;
+    virtual double getFlaeche() const;
+    virtual void zeichnen() const;
 
-    void zeichnen();
+private:
+    double m_breite;
+    double m_hoehe;
+};
 
-    int getBreite();
-    int getHoehe();
-
-    void setBreite(int breite);
-    void setHoehe(int hoehe);
-
+class InvalidDimensionException : public std::exception {
+public:
+    const char *what() const noexcept override;
 };

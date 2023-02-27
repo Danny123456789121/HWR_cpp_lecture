@@ -1,5 +1,5 @@
-#include "ComplexNumber.h"
-#include "UI.h"
+#include "UI.cpp"
+
 
 int main() {
     UI ui;
