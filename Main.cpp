@@ -3,7 +3,7 @@
 
 int main() {
     UI ui;
-    ui.run();
+    ui.start();
 
     return 0;
 }
